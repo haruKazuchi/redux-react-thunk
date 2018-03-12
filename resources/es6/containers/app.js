@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import App from '../components/app';
-import * as Actions from '../actions';
+import Actions from '../actions';
 
 function mapStateToProps({reducer}){
   const {counter} = reducer;

@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import Nfl from '../components/nfl';
-import * as Actions from '../actions';
+import Actions from '../actions';
 
 function mapStateToProps({nfl}){
   return {nfl};

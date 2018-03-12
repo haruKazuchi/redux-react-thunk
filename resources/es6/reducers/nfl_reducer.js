@@ -1,4 +1,6 @@
 import {fromJS} from 'immutable';
+import constant from '../constants';
+
 const initialState = {
   nfl: [],
   error: false
@@ -6,12 +8,14 @@ const initialState = {
 
 export default function nflReducer(state= initialState, action){
   switch (action.type) {
-    case 'LOAD_SUCCESS': {
+    case constant.LOAD_SUCCESS: {
+        console.log(action);
         state = fromJS(state);
         const nfl = state.getIn(['nfl']);
-        return state.setIn(['nfl'], nfl.toSet().concat(fromJS(action.payload.data).toSet())).toJS();
+        console.log(nfl);
+        return state.setIn(['nfl'], nfl.toSet().concat(fromJS(action.payload.result.data).toSet())).toJS();
     }
-    case 'LOAD_FAILED': {
+    case constant.LOAD_FAILED: {
         return {nfl: [], error: true}
     }
     default:
